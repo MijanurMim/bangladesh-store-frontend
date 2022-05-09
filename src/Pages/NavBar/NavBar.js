@@ -5,8 +5,8 @@ import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 // import logo from "../../images/logo2.jpg";
-import logo1 from '../../images/logo/logo.jpg'
-import logo2 from '../../images/logo/logo1.jpg'
+// import logo1 from '../../images/logo/logo.jpg'
+import logo2 from "../../images/logo/logo1.jpg";
 import { logout } from "../../redux/actions/userAction";
 
 const NavBar = ({ user }) => {
@@ -91,14 +91,24 @@ const NavBar = ({ user }) => {
 
                 {role === "admin" && (
                   <Nav.Link className="px-3  text-black" href="/home#aboutus">
-                    <Link style={{ textDecoration: 'none', color: 'black' }} to="/admin/dashboard">Dashboard</Link>
+                    <Link
+                      style={{ textDecoration: "none", color: "black" }}
+                      to="/admin/dashboard"
+                    >
+                      Dashboard
+                    </Link>
                   </Nav.Link>
                 )}
                 {user ? (
                   <button onClick={handleLogout}>Logout</button>
                 ) : (
                   <Nav.Link className="px-3  text-black" href="/home#aboutus">
-                    <Link style={{ textDecoration: 'none', color: 'black' }} to="/login">Login</Link>
+                    <Link
+                      style={{ textDecoration: "none", color: "black" }}
+                      to="/login"
+                    >
+                      Login
+                    </Link>
                   </Nav.Link>
                 )}
               </Nav>

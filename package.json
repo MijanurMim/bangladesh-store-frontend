@@ -2,7 +2,7 @@
   "name": "jwelery-website-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://bangladeshstorensd.com/",
+  "homepage": "https://bangladeshstorensd.com",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
@@ -52,5 +52,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://192.168.137.1:4000"
+  "proxy": "https://bangladesh-store-server-2.vercel.app"
 }
