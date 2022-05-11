@@ -35,6 +35,7 @@ import store from "./store";
 
 function App() {
   // Loading User Data Before Routing Starts
+
   useEffect(() => {
     store.dispatch(loadUser());
   }, []);

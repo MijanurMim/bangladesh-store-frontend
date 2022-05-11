@@ -16,6 +16,7 @@ import {
   productReducer,
   updateProductReducer,
 } from "./redux/reducers/productReducer";
+import { testReducer } from "./redux/reducers/TestReducer";
 import {
   deleteUnitReducer,
   newUnitReducer,
@@ -43,6 +44,8 @@ const reducer = combineReducers({
   newUnit: newUnitReducer,
   deleteUnit: deleteUnitReducer,
   updateUnit: updateUnitReducer,
+
+  testReducer: testReducer,
 });
 
 let initialState = {};

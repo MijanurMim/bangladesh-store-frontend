@@ -1,4 +1,5 @@
 import axios from "axios";
+import baseURL from "../../baseURL";
 import {
   CLEAR_ERRORS,
   LOAD_USER_FAIL,
@@ -22,7 +23,7 @@ export const login = (email, password) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post(
-      `/api/v1/login`,
+      `${baseURL}/api/v1/login`,
       { email, password },
       config
     );
@@ -40,7 +41,11 @@ export const register = (userData) => async (dispatch) => {
 
     const config = { headers: { "Content-Type": "multipart/form-data" } };
 
-    const { data } = await axios.post(`/api/v1/register`, userData, config);
+    const { data } = await axios.post(
+      `${baseURL}/api/v1/register`,
+      userData,
+      config
+    );
 
     dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
   } catch (error) {
@@ -57,7 +62,7 @@ export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
 
-    const { data } = await axios.get(`/api/v1/me`);
+    const { data } = await axios.get(`${baseURL}/api/v1/me`);
 
     dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
   } catch (error) {
@@ -68,7 +73,7 @@ export const loadUser = () => async (dispatch) => {
 // Log out
 export const logout = () => async (dispatch) => {
   try {
-    await axios.get(`/api/v1/logout`);
+    await axios.get(`${baseURL}/api/v1/logout`);
 
     dispatch({ type: LOGOUT_USER_SUCCESS });
   } catch (error) {

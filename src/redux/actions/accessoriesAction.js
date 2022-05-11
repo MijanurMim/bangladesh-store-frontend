@@ -1,4 +1,5 @@
 import axios from "axios";
+import baseURL from "../../baseURL";
 import {
   ACCESSORIES_DETAILS_FAIL,
   ACCESSORIES_DETAILS_REQUEST,
@@ -28,7 +29,7 @@ export const getAccessories =
     try {
       dispatch({ type: ALL_ACCESSORIES_REQUEST });
 
-      let link = `/api/v1/accessories?&page=${currentPage}`;
+      let link = `${baseURL}/api/v1/accessories?&page=${currentPage}`;
       if (category) {
         link = `/api/v1/accessories?&page=${currentPage}&category=${category}`;
       }
@@ -49,7 +50,7 @@ export const getAdminAccessories = () => async (dispatch) => {
   try {
     dispatch({ type: ADMIN_ACCESSORIES_REQUEST });
 
-    const { data } = await axios.get("/api/v1/admin/accessories");
+    const { data } = await axios.get(`${baseURL}/api/v1/admin/accessories`);
 
     dispatch({ type: ADMIN_ACCESSORIES_SUCCESS, payload: data.accessories });
   } catch (error) {
@@ -70,7 +71,7 @@ export const createAccessories = (accessoriesData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `/api/v1/admin/accessory/new`,
+      `${baseURL}/api/v1/admin/accessory/new`,
       accessoriesData,
       config
     );
@@ -92,7 +93,7 @@ export const getAccessoryDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: ACCESSORIES_DETAILS_REQUEST });
 
-    const { data } = await axios.get(`/api/v1/accessory/${id}`);
+    const { data } = await axios.get(`${baseURL}/api/v1/accessory/${id}`);
 
     dispatch({ type: ACCESSORIES_DETAILS_SUCCESS, payload: data.accessory });
   } catch (error) {
@@ -108,7 +109,9 @@ export const deleteAccessory = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_ACCESSORIES_REQUEST });
 
-    const { data } = await axios.delete(`/api/v1/admin/accessory/${id}`);
+    const { data } = await axios.delete(
+      `${baseURL}/api/v1/admin/accessory/${id}`
+    );
 
     dispatch({
       type: DELETE_ACCESSORIES_SUCCESS,
@@ -132,7 +135,7 @@ export const updateAccessory = (id, accessoryData) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      `/api/v1/admin/accessory/${id}`,
+      `${baseURL}/api/v1/admin/accessory/${id}`,
       accessoryData,
       config
     );

@@ -1,4 +1,5 @@
 import axios from "axios";
+import baseURL from "../../baseURL";
 import {
   ADMIN_UNIT_FAIL,
   ADMIN_UNIT_REQUEST,
@@ -20,7 +21,7 @@ export const getUnits = () => async (dispatch) => {
   try {
     dispatch({ type: ADMIN_UNIT_REQUEST });
 
-    const { data } = await axios.get("/api/v1/admin/units");
+    const { data } = await axios.get(`${baseURL}/api/v1/admin/units`);
 
     dispatch({ type: ADMIN_UNIT_SUCCESS, payload: data.units });
   } catch (error) {
@@ -41,7 +42,7 @@ export const createUnit = (unitData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `/api/v1/admin/unit/new`,
+      `${baseURL}/api/v1/admin/unit/new`,
       unitData,
       config
     );
@@ -63,7 +64,7 @@ export const deleteUnit = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_UNIT_REQUEST });
 
-    const { data } = await axios.delete(`/api/v1/admin/unit/${id}`);
+    const { data } = await axios.delete(`${baseURL}/api/v1/admin/unit/${id}`);
 
     dispatch({
       type: DELETE_UNIT_SUCCESS,
@@ -87,7 +88,7 @@ export const updateUnit = (id, unitData) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      `/api/v1/admin/unit/${id}`,
+      `${baseURL}/api/v1/admin/unit/${id}`,
       unitData,
       config
     );
