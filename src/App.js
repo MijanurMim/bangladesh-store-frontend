@@ -172,7 +172,8 @@ function App() {
 
             <Route path="/product/:category" element={<AllProducts />}></Route>
 
-            <Route path="/login" element={<LoginSignUp></LoginSignUp>}></Route>
+            <Route path="/login" element={<LoginSignUp />}></Route>
+            {/* <Route path="/login" element={<LoginWithGoogle />}></Route> */}
 
             <Route path="*" element={<NotFound />}></Route>
           </>
