@@ -10,7 +10,7 @@ import {
 import Spinner from "../../spinner/Spinner";
 import "./LoginSignUp.css";
 
-const LoginSignUp = ({ history, location }) => {
+const LoginSignUp = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
   const navigate = useNavigate();
